@@ -15,6 +15,11 @@ ul {
   list-style: none;
 }
 
+nav > ul > li > ul {
+  height: 0;
+  visibility: hidden;
+}
+
 #drop-down {
   background-color: blue;
 }
