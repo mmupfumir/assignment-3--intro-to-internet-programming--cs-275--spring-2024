@@ -30,7 +30,7 @@ nav > ul > li > ul {
   background-color: blue;
 }
 
-#drop-down > ul > li {
+#drop-down > ul {
   display: inline-flex;
 }
 
