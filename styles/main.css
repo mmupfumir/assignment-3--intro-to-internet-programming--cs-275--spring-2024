@@ -30,4 +30,5 @@ nav > ul > li > ul {
 
 #side-tray {
   background-color: pink;
+  max-width: 150px;
 }
