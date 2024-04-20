@@ -25,7 +25,13 @@ nav > ul > li > ul {
 }
 
 #drop-down {
+  display: flex;
+  justify-content: center;
   background-color: blue;
+}
+
+#drop-down > ul > li {
+  display: inline-flex;
 }
 
 #side-tray {
