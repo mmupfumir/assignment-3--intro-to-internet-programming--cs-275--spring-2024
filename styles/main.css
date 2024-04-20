@@ -3,6 +3,7 @@ header {
   display: flex;
   justify-content: right;
   background-color: blueviolet;
+  z-index: 20;
 }
 
 a {
