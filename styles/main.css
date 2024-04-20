@@ -1,4 +1,5 @@
 header {
+  position: relative;
   height: 75px;
   display: flex;
   justify-content: right;
@@ -25,6 +26,8 @@ nav > ul > li > ul {
 }
 
 #drop-down {
+  position: absolute;
+  top: 10;
   display: flex;
   justify-content: center;
   background-color: blue;
