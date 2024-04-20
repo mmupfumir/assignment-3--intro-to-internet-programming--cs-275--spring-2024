@@ -1,4 +1,7 @@
 header {
+  height: 75px;
+  display: flex;
+  justify-content: right;
   background-color: blueviolet;
 }
 
