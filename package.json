@@ -1,0 +1,15 @@
+{
+  "name": "assignment-3--intro-to-internet-programming--cs-275--spring-2024",
+  "version": "1.0.0",
+  "description": "CS-275 Assignment 3",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jaesung Yang",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-htmlmin": "^5.0.1"
+  }
+}
