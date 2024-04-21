@@ -50,3 +50,14 @@ menuButton.addEventListener(`click`, () => {
         isMenuOpen = true;
     }
 });
+
+window.addEventListener(`keydown`, (event) => {
+    if (event.key === `Escape` && isMenuOpen) {
+        if (!isMobileSized) {
+            nav.style.top = DROP_DOWN_DEFAULT_TOP;
+        }
+        else {
+            nav.style.left = SIDE_TRAY_DEFAULT_LEFT;
+        }
+    }
+});
