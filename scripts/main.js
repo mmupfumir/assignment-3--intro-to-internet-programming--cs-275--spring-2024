@@ -109,5 +109,6 @@ window.addEventListener(`keydown`, (event) => {
         else {
             nav.style.left = SIDE_TRAY_DEFAULT_LEFT;
         }
+        isMenuOpen = false;
     }
 });
