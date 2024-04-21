@@ -10,8 +10,6 @@ window.addEventListener(`load`, () => {
         isMobileSized = true;
         nav.setAttribute(`id`, `side-tray`);
     }
-    console.log(isMobileSized);
-    console.log(`Loaded`);
 });
 
 window.addEventListener(`resize`, () => {
