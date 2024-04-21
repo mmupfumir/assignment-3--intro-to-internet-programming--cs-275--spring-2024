@@ -22,3 +22,27 @@ window.addEventListener(`resize`, () => {
         location.reload();
     }
 });
+
+let menuButton = document.querySelectorAll(`#js-triggers > li > a`)[0];
+let isMenuOpen = false;
+
+menuButton.addEventListener(`click`, () => {
+    if (isMenuOpen) {
+        if (!isMobileSized) {
+            nav.style.top = `10px`;
+        }
+        else {
+            nav.style.left = `-100px`;
+        }
+        isMenuOpen = false;
+    }
+    else {
+        if (!isMobileSized) {
+            nav.style.top = `80px`;
+        }
+        else {
+            nav.style.left = `0px`;
+        }
+        isMenuOpen = true;
+    }
+});
