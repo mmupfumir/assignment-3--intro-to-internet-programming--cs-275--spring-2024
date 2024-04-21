@@ -41,10 +41,10 @@ nav > ul > li > ul {
   background-color: azure;
   position: fixed;
   top: calc(50vh - 150px);
-  left: calc(50vw - 250px);
+  left: calc(50vw - 200px);
   visibility: hidden;
   height: 300px;
-  width: 500px;
+  width: 400px;
   z-index: 40;
 }
 
