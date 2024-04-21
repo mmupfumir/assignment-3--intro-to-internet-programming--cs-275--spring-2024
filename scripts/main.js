@@ -124,6 +124,11 @@ modalMask.addEventListener(`click`, () => {
     }
 });
 
+modalPanel.addEventListener(`click`, (event) => {
+    // This makes it so the user cannot click through the modal
+    event.stopPropagation();
+});
+
 // Escape key functionality
 window.addEventListener(`keydown`, (event) => {
     // Hide menu
