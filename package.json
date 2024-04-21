@@ -9,7 +9,10 @@
   "author": "Jaesung Yang",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^5.0.0",
+    "browser-sync": "^3.0.2",
     "gulp-htmlmin": "^5.0.1"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
   }
 }
