@@ -25,7 +25,7 @@ window.addEventListener(`resize`, () => {
 let menuOneButton = document.querySelectorAll(`nav > ul > li > a`)[0];
 let isMenuOneOpen = false;
 
-menuOneButton.addEventListener(`click`, () => {
+menuOneButton.addEventListener(`click`, (event) => {
     let menuOneList = document.querySelectorAll(`nav > ul > li > ul`)[0];
     if (isMenuOneOpen) {
         menuOneList.style.visibility = `hidden`;
@@ -37,12 +37,13 @@ menuOneButton.addEventListener(`click`, () => {
         menuOneList.style.height = `auto`;
         isMenuOneOpen = true;
     }
+    event.preventDefault();
 });
 
 let menuTwoButton = document.querySelectorAll(`nav > ul > li > a`)[1];
 let isMenuTwoOpen = false;
 
-menuTwoButton.addEventListener(`click`, () => {
+menuTwoButton.addEventListener(`click`, (event) => {
     let menuTwoList = document.querySelectorAll(`nav > ul > li > ul`)[1];
     if (isMenuTwoOpen) {
         menuTwoList.style.visibility = `hidden`;
@@ -54,6 +55,7 @@ menuTwoButton.addEventListener(`click`, () => {
         menuTwoList.style.height = `auto`;
         isMenuTwoOpen = true;
     }
+    event.preventDefault();
 });
 
 // Open and close the menu and sidetray
@@ -64,7 +66,7 @@ const DROP_DOWN_LOWERED_TOP = `80px`;
 const SIDE_TRAY_DEFAULT_LEFT = `-100px`;
 const SIDE_TRAY_OPENED_LEFT = `0`;
 
-menuButton.addEventListener(`click`, () => {
+menuButton.addEventListener(`click`, (event) => {
     if (isMenuOpen) {
         if (!isMobileSized) {
             nav.style.top = DROP_DOWN_DEFAULT_TOP;
@@ -94,6 +96,7 @@ menuButton.addEventListener(`click`, () => {
         }
         isMenuOpen = true;
     }
+    event.preventDefault();
 });
 
 // Escape key functionality
