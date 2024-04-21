@@ -1,4 +1,4 @@
-const {series, watch, dest, src} = require(`gulp`),
+const {series, watch} = require(`gulp`),
     browserSync = require(`browser-sync`);
 
 let serve = () => {
@@ -14,3 +14,7 @@ let serve = () => {
     watch(`styles/*.css`).on(`change`, browserSync.reload);
     watch(`*.html`).on(`change`, browserSync.reload);
 };
+
+exports.serve = series(
+    serve
+);
