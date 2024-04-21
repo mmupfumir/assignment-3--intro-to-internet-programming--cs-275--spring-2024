@@ -25,23 +25,27 @@ window.addEventListener(`resize`, () => {
 
 let menuButton = document.querySelectorAll(`#js-triggers > li > a`)[0];
 let isMenuOpen = false;
+const DROP_DOWN_DEFAULT_TOP = `10px`;
+const DROP_DOWN_LOWERED_TOP = `80px`;
+const SIDE_TRAY_DEFAULT_LEFT = `-100px`;
+const SIDE_TRAY_OPENED_LEFT = `0`;
 
 menuButton.addEventListener(`click`, () => {
     if (isMenuOpen) {
         if (!isMobileSized) {
-            nav.style.top = `10px`;
+            nav.style.top = DROP_DOWN_DEFAULT_TOP;
         }
         else {
-            nav.style.left = `-100px`;
+            nav.style.left = SIDE_TRAY_DEFAULT_LEFT;
         }
         isMenuOpen = false;
     }
     else {
         if (!isMobileSized) {
-            nav.style.top = `80px`;
+            nav.style.top = DROP_DOWN_LOWERED_TOP;
         }
         else {
-            nav.style.left = `0px`;
+            nav.style.left = SIDE_TRAY_OPENED_LEFT;
         }
         isMenuOpen = true;
     }
