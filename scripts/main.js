@@ -23,6 +23,7 @@ window.addEventListener(`resize`, () => {
     }
 });
 
+// Open and close the menu and sidetray
 let menuButton = document.querySelectorAll(`#js-triggers > li > a`)[0];
 let isMenuOpen = false;
 const DROP_DOWN_DEFAULT_TOP = `10px`;
@@ -51,6 +52,7 @@ menuButton.addEventListener(`click`, () => {
     }
 });
 
+// Escape key functionality
 window.addEventListener(`keydown`, (event) => {
     if (event.key === `Escape` && isMenuOpen) {
         if (!isMobileSized) {
