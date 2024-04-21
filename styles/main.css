@@ -19,6 +19,7 @@ nav {
 
 ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 
 nav > ul > li > ul {
