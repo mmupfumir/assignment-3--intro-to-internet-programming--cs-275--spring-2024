@@ -21,7 +21,7 @@ window.addEventListener(`resize`, () => {
     }
 });
 
-// Expand menus 1 and 2
+// Expand submenus 1 and 2
 let menuOneButton = document.querySelectorAll(`nav > ul > li > a`)[0];
 let isMenuOneOpen = false;
 
@@ -72,6 +72,17 @@ menuButton.addEventListener(`click`, () => {
         else {
             nav.style.left = SIDE_TRAY_DEFAULT_LEFT;
         }
+
+        // Condense submenus
+        let menuOneList = document.querySelectorAll(`nav > ul > li > ul`)[0];
+        let menuTwoList = document.querySelectorAll(`nav > ul > li > ul`)[1];
+        menuOneList.style.visibility = `hidden`;
+        menuOneList.style.height = `0px`;
+        menuTwoList.style.visibility = `hidden`;
+        menuTwoList.style.height = `0px`;
+        isMenuOneOpen = false;
+        isMenuTwoOpen = false;
+
         isMenuOpen = false;
     }
     else {
