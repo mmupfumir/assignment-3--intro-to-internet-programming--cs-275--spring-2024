@@ -101,6 +101,7 @@ menuButton.addEventListener(`click`, (event) => {
 
 // Escape key functionality
 window.addEventListener(`keydown`, (event) => {
+    // Hide menu
     if (event.key === `Escape` && isMenuOpen) {
         if (!isMobileSized) {
             nav.style.top = DROP_DOWN_DEFAULT_TOP;
