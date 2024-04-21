@@ -42,7 +42,7 @@ nav > ul > li > ul {
 
 #side-tray {
   position: fixed;
-  top: 70px;
+  top: 80px;
   left: -250px;
   background-color: pink;
   max-width: 250px;
