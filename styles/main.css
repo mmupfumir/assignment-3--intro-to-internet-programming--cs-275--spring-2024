@@ -36,6 +36,17 @@ nav > ul > li > ul {
   z-index: 30;
 }
 
+.modal-content-pane {
+  background-color: azure;
+  position: fixed;
+  top: calc(50vh - 150px);
+  left: calc(50vw - 250px);
+  visibility: hidden;
+  height: 300px;
+  width: 500px;
+  z-index: 40;
+}
+
 #drop-down {
   position: absolute;
   top: 10px;

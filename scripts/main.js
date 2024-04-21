@@ -99,6 +99,31 @@ menuButton.addEventListener(`click`, (event) => {
     event.preventDefault();
 });
 
+// Open and close modal
+let modalButton = document.querySelectorAll(`#js-triggers > li > a`)[1];
+let modalMask = document.getElementsByClassName(`modal-panel`)[0];
+let modalPanel = document.getElementsByClassName(`modal-content-pane`)[0];
+let isModalShowing = false;
+
+modalButton.addEventListener(`click`, (event) => {
+    if (!isModalShowing) {
+        modalMask.style.height = `100vh`;
+        modalMask.style.width = `100vw`;
+        modalPanel.style.visibility = `visible`;
+        isModalShowing = true;
+    }
+    event.preventDefault();
+});
+
+modalMask.addEventListener(`click`, () => {
+    if (isModalShowing) {
+        modalMask.style.height = `0`;
+        modalMask.style.width = `0`;
+        modalPanel.style.visibility = `hidden`;
+        isModalShowing = false;
+    }
+});
+
 // Escape key functionality
 window.addEventListener(`keydown`, (event) => {
     // Hide menu
@@ -110,5 +135,12 @@ window.addEventListener(`keydown`, (event) => {
             nav.style.left = SIDE_TRAY_DEFAULT_LEFT;
         }
         isMenuOpen = false;
+    }
+    // Remove Modal
+    if (event.key === `Escape` && isModalShowing) {
+        modalMask.style.height = `0`;
+        modalMask.style.width = `0`;
+        modalPanel.style.visibility = `hidden`;
+        isModalShowing = false;
     }
 });
