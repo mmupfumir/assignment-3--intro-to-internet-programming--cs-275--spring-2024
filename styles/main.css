@@ -29,6 +29,8 @@ nav > ul > li > ul {
 #drop-down {
   position: absolute;
   top: 10px;
+  left: calc(50vw - 100px);
+  width: 200px;
   display: flex;
   justify-content: center;
   background-color: blue;
