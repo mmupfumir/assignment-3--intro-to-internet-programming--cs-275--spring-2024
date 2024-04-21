@@ -1,0 +1,46 @@
+nav {
+  background-color: #333;
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+nav ul > li {
+  position: relative;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+}
+
+nav.visible {
+  display: block;
+}
+
+nav ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  background-color: #444;
+  z-index: 1000;
+}
+
+nav ul > li > ul.visible {
+  display: block;
+}
