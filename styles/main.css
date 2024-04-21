@@ -14,6 +14,7 @@ a {
 
 nav {
   z-index: 10;
+  transition: linear .5s;
 }
 
 ul {
