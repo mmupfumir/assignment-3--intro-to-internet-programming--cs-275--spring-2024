@@ -21,6 +21,41 @@ window.addEventListener(`resize`, () => {
     }
 });
 
+// Expand menus 1 and 2
+let menuOneButton = document.querySelectorAll(`nav > ul > li > a`)[0];
+let isMenuOneOpen = false;
+
+menuOneButton.addEventListener(`click`, () => {
+    let menuOneList = document.querySelectorAll(`nav > ul > li > ul`)[0];
+    if (isMenuOneOpen) {
+        menuOneList.style.visibility = `hidden`;
+        menuOneList.style.height = `0px`;
+        isMenuOneOpen = false;
+    }
+    else {
+        menuOneList.style.visibility = `visible`;
+        menuOneList.style.height = `auto`;
+        isMenuOneOpen = true;
+    }
+});
+
+let menuTwoButton = document.querySelectorAll(`nav > ul > li > a`)[1];
+let isMenuTwoOpen = false;
+
+menuTwoButton.addEventListener(`click`, () => {
+    let menuTwoList = document.querySelectorAll(`nav > ul > li > ul`)[1];
+    if (isMenuTwoOpen) {
+        menuTwoList.style.visibility = `hidden`;
+        menuTwoList.style.height = `0px`;
+        isMenuTwoOpen = false;
+    }
+    else {
+        menuTwoList.style.visibility = `visible`;
+        menuTwoList.style.height = `auto`;
+        isMenuTwoOpen = true;
+    }
+});
+
 // Open and close the menu and sidetray
 let menuButton = document.querySelectorAll(`#js-triggers > li > a`)[0];
 let isMenuOpen = false;
@@ -59,40 +94,5 @@ window.addEventListener(`keydown`, (event) => {
         else {
             nav.style.left = SIDE_TRAY_DEFAULT_LEFT;
         }
-    }
-});
-
-// Expand menus 1 and 2
-let menuOneButton = document.querySelectorAll(`nav > ul > li > a`)[0];
-let isMenuOneOpen = false;
-
-menuOneButton.addEventListener(`click`, () => {
-    let menuOneList = document.querySelectorAll(`nav > ul > li > ul`)[0];
-    if (isMenuOneOpen) {
-        menuOneList.style.visibility = `hidden`;
-        menuOneList.style.height = `0px`;
-        isMenuOneOpen = false;
-    }
-    else {
-        menuOneList.style.visibility = `visible`;
-        menuOneList.style.height = `auto`;
-        isMenuOneOpen = true;
-    }
-});
-
-let menuTwoButton = document.querySelectorAll(`nav > ul > li > a`)[1];
-let isMenuTwoOpen = false;
-
-menuTwoButton.addEventListener(`click`, () => {
-    let menuTwoList = document.querySelectorAll(`nav > ul > li > ul`)[1];
-    if (isMenuTwoOpen) {
-        menuTwoList.style.visibility = `hidden`;
-        menuTwoList.style.height = `0px`;
-        isMenuTwoOpen = false;
-    }
-    else {
-        menuTwoList.style.visibility = `visible`;
-        menuTwoList.style.height = `auto`;
-        isMenuTwoOpen = true;
     }
 });
