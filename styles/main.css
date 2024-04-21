@@ -26,6 +26,15 @@ nav > ul > li > ul {
   visibility: hidden;
 }
 
+.modal-panel {
+  background-color: rgba(0, 0, 0, .9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
 #drop-down {
   position: absolute;
   top: 10px;
