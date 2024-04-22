@@ -1,5 +1,8 @@
 const {series, watch} = require(`gulp`),
-    browserSync = require(`browser-sync`);
+    browserSync = require(`browser-sync`),
+    jsLinter = require(`gulp-eslint`),
+    babel = require(`gulp-babel`),
+    CSSLinter = require(`gulp-stylelint`);
 
 let browserChoice = `default`;
 
@@ -12,8 +15,7 @@ async function chrome () {
 }
 
 async function edge () {
-    // In Windows, the value might need to be “microsoft-edge”. Note the dash.
-    browserChoice = `microsoft edge`;
+    browserChoice = `microsoft-edge`;
 }
 
 async function firefox () {
@@ -36,13 +38,39 @@ async function allBrowsers () {
     browserChoice = [
         `brave browser`,
         `google chrome`,
-        `microsoft edge`, // Note: In Windows, this might need to be microsoft-edge
+        `microsoft-edge`, // Note: In Windows, this might need to be microsoft-edge
         `firefox`,
         `opera`,
         `safari`,
         `vivaldi`
     ];
 }
+
+let lintJS = () => {
+    return src(`scripts/*.js`)
+        .pipe(
+            jsLinter({ configFile: `.eslintrc.json`})
+        )
+        .pipe(jsLinter.formatEach(`compact`));
+};
+
+let lintCSS = () => {
+    return src(`styles/*.css`)
+        .pipe(CSSLinter({
+            failAfterError: false,
+            reporters: [
+                {formatter: `string`, console: true}
+            ],
+            configFile: `.stylelintrc.json`
+        })
+        );
+};
+
+let transpileJSForDev = () => {
+    return src(`scripts/*.js`)
+        .pipe(babel())
+        .pipe(dest(`dev/scripts`));
+};
 
 let serve = () => {
     browserSync({
@@ -68,6 +96,12 @@ exports.safari = series(safari, serve);
 exports.vivaldi = series(vivaldi, serve);
 exports.allBrowsers = series(allBrowsers, serve);
 exports.default = serve;
+exports.lintJS = lintJS;
+exports.lintCSS = lintCSS;
+exports.transpileJSForDev = transpileJSForDev;
 exports.serve = series(
-    serve
+    lintJS,
+    serve,
+    lintCSS,
+    transpileJSForDev
 );

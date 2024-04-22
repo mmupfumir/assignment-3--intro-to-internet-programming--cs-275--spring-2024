@@ -10,7 +10,11 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^3.0.2",
-    "gulp-htmlmin": "^5.0.1"
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-html": "^6.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-stylelint": "^13.0.0"
   },
   "dependencies": {
     "gulp": "^4.0.2"
