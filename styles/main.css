@@ -40,11 +40,11 @@ nav > ul > li > ul {
 .modal-content-pane {
   background-color: azure;
   position: fixed;
-  top: calc(50vh - 150px);
-  left: calc(50vw - 200px);
+  top: calc(50vh - 22.5vh);
+  left: calc(50vw - 32.5vw);
   visibility: hidden;
-  height: 300px;
-  width: 400px;
+  height: 45vh;
+  width: 65vw;
   z-index: 40;
 }
 
