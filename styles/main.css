@@ -8,6 +8,19 @@ nav {
   width: auto;
 }
 
+#js-triggers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.side-tray {
+  background-color: #;
+}
+
 nav ul {
   list-style-type: none;
   padding: 0;

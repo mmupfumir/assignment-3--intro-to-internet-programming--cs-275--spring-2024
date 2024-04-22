@@ -1,4 +1,4 @@
-const {series, watch} = require(`gulp`),
+const {src, dest, series, watch} = require(`gulp`),
     browserSync = require(`browser-sync`),
     jsLinter = require(`gulp-eslint`),
     babel = require(`gulp-babel`),
