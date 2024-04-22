@@ -1,3 +1,7 @@
+main {
+  padding-top: 12px;
+}
+
 header {
   background-color: red;
   text-align: right;
@@ -32,6 +36,34 @@ nav li {
   list-style-type: none; /* Remove list bullets */
 }
 
+nav ul li {
+  color: white;
+  justify-content: center;
+  font-weight: 700;
+  background-color: red;
+  padding: 10px 15px;
+  padding-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  background-color: blue;
+  padding: 5px 10px;
+  padding-left: 20px;
+}
+
+nav {
+  position: absolute;
+  top: 15.5%;
+  right: 40%;
+}
+
+#menu-bar {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+}
+
 .modal-panel {
   visibility: hidden;
   opacity: 0;
@@ -40,7 +72,7 @@ nav li {
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .695);
+  background-color: rgba(0, 0, 0, .75);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,8 +81,21 @@ nav li {
 .modal-content-pane {
   background-color: white;
   width: 45%;
-  height: 30%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  color: black;
+  justify-content: flex-end;
+  font-weight: 700;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 12%;
+  right: 26%;
 }

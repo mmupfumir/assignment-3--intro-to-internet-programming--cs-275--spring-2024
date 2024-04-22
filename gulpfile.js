@@ -12,7 +12,7 @@ let browserChoice = `default`;
 
 ///NEEDED FOR DEV
 let lintJS = () => {
-    return src(`scripts/*.js`)
+    return src(`scripts/main.js`)
         .pipe(jsLinter(`.eslintrc`))
         .pipe(jsLinter.formatEach(`compact`));
 };
@@ -30,7 +30,7 @@ let lintCSS = () => {
 let transpileJSForDev = () => {
     return src(`scripts/main.js`)
         .pipe(babel())
-        .pipe(dest(`temp/js`));
+        .pipe(dest(`temp/scripts`));
 };
 
 let compileCSSForDev = (`minify-css`, () => {
@@ -41,8 +41,6 @@ let compileCSSForDev = (`minify-css`, () => {
 
 let copyUnprocessedAssetsForDev = () => {
     return src([
-        // `img*/*`,       // Source all images,
-        // `json*/*.json`, // and all json,
         `index.html`    // index.html
     ], {dot: true})
         .pipe(dest(`temp`));
@@ -68,15 +66,6 @@ let compileCSSForProd = (`minify-css`, () => {
         .pipe(dest(`prod/styles`));
 });
 
-// let copyUnprocessedAssetsForProd = () => {
-//     return src([
-//         `img*/*`,       // Source all images,
-//         `json*/*.json`, // and all json,
-//     ], {dot: true})
-//         .pipe(dest(`prod`));
-// };
-
-
 //server is made up of the temp folder, dev folder, and HTML inside the dev folder (line 84-87)
 let serve = () => {
     browserSync({
@@ -92,7 +81,7 @@ let serve = () => {
     watch(`index.html`)
         .on(`change`, reload);
 
-    watch(`scripts/*.js`, series(lintJS, transpileJSForDev))
+    watch(`scripts/main.js`, series(lintJS, transpileJSForDev))
         .on(`change`, reload);
 
     watch(`styles/main.css`, series(lintCSS, compileCSSForDev))
@@ -109,7 +98,6 @@ exports.compileCSSForDev = compileCSSForDev;
 exports.copyUnprocessedAssetsForDev = copyUnprocessedAssetsForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.compileCSSForProd = compileCSSForProd;
-//exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.serve = series(
     copyUnprocessedAssetsForDev,
     lintJS,
@@ -122,6 +110,5 @@ exports.serve = series(
 exports.build = series(
     compressHTML,
     transpileJSForProd,
-    compileCSSForProd,
-    //copyUnprocessedAssetsForProd
+    compileCSSForProd
 );
