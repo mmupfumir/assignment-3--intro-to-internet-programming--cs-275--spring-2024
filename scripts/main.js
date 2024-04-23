@@ -18,8 +18,41 @@ const bodySideTrayHTML = `
       </li>
     </ul>
 </nav>`;
+const bodyModalHTML = `
+<div class = "modal">
+  <div class = "modal-content">
+  </div>
+</div>
+<div class="modal-overlay">
+</div>`;
 
 body.innerHTML += bodySideTrayHTML;
+body.innerHTML += bodyModalHTML;
+
+document.addEventListener(`DOMContentLoaded`, () => {
+    const showModalTrigger = document.querySelector(`#js-triggers li:last-child a`);
+    const modal = document.querySelector(`.modal`);
+    const modalOverlay = document.querySelector(`.modal-overlay`);
+
+    showModalTrigger.addEventListener(`click`, (event) => {
+        event.preventDefault();
+        modal.style.display = `block`;
+        modalOverlay.style.display = `block`;
+    });
+
+    modalOverlay.addEventListener(`click`, () => {
+        modal.style.display = `none`;
+        modalOverlay.style.display = `none`;
+    });
+
+    document.addEventListener(`keydown`, (event) => {
+        if (event.key === `Escape`) {
+            modal.style.display = `none`;
+            modalOverlay.style.display = `none`;
+        }
+    });
+
+});
 
 document.addEventListener(`DOMContentLoaded`, () => {
     const showMenuTrigger = document.querySelector(`#js-triggers li:first-child a`);
