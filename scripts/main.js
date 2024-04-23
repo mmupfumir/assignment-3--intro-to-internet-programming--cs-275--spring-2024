@@ -54,6 +54,15 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
 });
 
+window.addEventListener(`resize`, () => {
+    const modal = document.querySelector(`.modal`);
+
+    if (modal.style.display == `block`) {
+        modal.style.width = `50vw`;
+        modal.style.height = `50vh`;
+    }
+});
+
 document.addEventListener(`DOMContentLoaded`, () => {
     const showMenuTrigger = document.querySelector(`#js-triggers li:first-child a`);
     const nav = document.querySelector(`nav`);
