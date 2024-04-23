@@ -148,7 +148,8 @@ a:hover {
     left: 0;
     visibility: hidden;
   }
-  
+}
+
 .modal-panel {
   display: none;
   position: fixed;
