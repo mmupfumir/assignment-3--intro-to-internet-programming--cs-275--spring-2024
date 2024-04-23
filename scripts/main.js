@@ -1,5 +1,9 @@
 const modalPanel = document.getElementsByClassName(`modal-panel`)[0];
 const modalButton = document.getElementById(`modal-button`);
+const menuButton = document.getElementById(`menu-button`);
+const menuNav = document.getElementById(`menu-nav`);
+const head = document.getElementById(`head`);
+let visible = false;
 
 modalButton.onclick = function () {
     modalPanel.style.display = `block`;
@@ -22,3 +26,15 @@ document.onkeydown = function(evt) {
         modalPanel.style.display = `none`;
     }
 };
+
+menuButton.addEventListener(`click`, () => {
+    if (!visible) {
+        menuNav.style.visibility = `visible`;
+        visible = true;
+    } else {
+        menuNav.style.visibility = `hidden`;
+        visible = false;
+    }
+});
+
+head.appendChild(menuNav);
