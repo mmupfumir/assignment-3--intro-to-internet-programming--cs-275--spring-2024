@@ -9,4 +9,16 @@ window.onclick = function(event) {
     if (event.target == modalPanel) {
         modalPanel.style.display = `none`;
     }
-} ;
+};
+
+document.onkeydown = function(evt) {
+    let isEscape = false;
+    if (`key` in evt) {
+        isEscape = (evt.key === `Escape` || evt.key === `Esc`);
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        modalPanel.style.display = `none`;
+    }
+};
