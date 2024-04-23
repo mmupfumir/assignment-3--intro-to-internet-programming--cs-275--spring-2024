@@ -17,6 +17,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+header {
+  margin-top: 50px;
+}
+
 ul {
   background-color: var(--color--bg--nav);
   list-style-type: none;
@@ -111,8 +115,8 @@ a:hover {
     height: cal(var(--height--nav-item) * 3);
     width: var(--width--nav);
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 55px;
+    left: 8px;
     padding-top: 40px;
   }
 
