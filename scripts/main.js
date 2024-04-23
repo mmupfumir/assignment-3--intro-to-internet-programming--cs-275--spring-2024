@@ -1,5 +1,6 @@
 const menuButton = document.getElementById(`menu-button`);
 const menuNav = document.getElementById(`menu-nav`);
+const head = document.getElementById(`head`);
 let visible = false;
 
 menuButton.addEventListener(`click`, () => {
@@ -11,3 +12,5 @@ menuButton.addEventListener(`click`, () => {
         visible = false;
     }
 });
+
+head.appendChild(menuNav);

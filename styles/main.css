@@ -17,6 +17,31 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+ul {
+  background-color: var(--color--bg--nav);
+  list-style-type: none;
+}
+
+ul li {
+  margin-left: -40px;
+}
+
+header > ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header > ul > li {
+  position: relative;
+  margin: 0;
+  width: var(--width--nav-item);
+}
+
+main {
+  margin-top: var(--height--nav-item);
+}
+
 h1 {
   text-align: center;
 }
@@ -40,9 +65,13 @@ a:hover {
 
 @media (min-width: 737px) {
   nav {
-    margin: auto;
+    margin: 0 auto;
     width: var(--width--nav);
     height: var(--height--nav-item);
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
   }
 
   nav ul {
@@ -80,7 +109,7 @@ a:hover {
 @media (max-width: 736px) {
   nav {
     height: cal(var(--height--nav-item) * 3);
-    width: cacl(var(--width--nav));
+    width: var(--width--nav);
     position: fixed;
     top: 0;
     left: 0;
