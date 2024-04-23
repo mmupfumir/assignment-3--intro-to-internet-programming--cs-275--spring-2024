@@ -148,4 +148,24 @@ a:hover {
     left: 0;
     visibility: hidden;
   }
+  
+.modal-panel {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5vw auto;
+  padding: 20px;
+  border: 1px solid #888;
+  height: 90vh;
+  width: 90vw;
 }
