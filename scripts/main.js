@@ -5,11 +5,13 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     showMenuTrigger.addEventListener(`click`, (event) => {
         event.preventDefault();
-        nav.classList.toggle(`visible`);
 
         if (window.innerWidth <= 735) {
             sideTray.classList.toggle(`visible`);
+        } else {
+            nav.classList.toggle(`visible`);
         }
+
     });
 
     const menuItems = document.querySelectorAll(`nav ul > li > a`);

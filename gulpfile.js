@@ -49,7 +49,7 @@ async function allBrowsers () {
 let lintJS = () => {
     return src(`scripts/*.js`)
         .pipe(
-            jsLinter({ configFile: `.eslintrc.json`})
+            jsLinter({ configFile: `.eslintrc`})
         )
         .pipe(jsLinter.formatEach(`compact`));
 };
@@ -61,7 +61,7 @@ let lintCSS = () => {
             reporters: [
                 {formatter: `string`, console: true}
             ],
-            configFile: `.stylelintrc.json`
+            configFile: `.stylelintrc`
         })
         );
 };
