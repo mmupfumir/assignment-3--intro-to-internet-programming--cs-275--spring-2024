@@ -23,29 +23,38 @@ nav.visible {
 
 .side-tray {
   background-color: #113ddb;
-  display: none;
   position: fixed;
-  top: 0;
-  left: -250px;
-  height: 100vh;
-  width: 250px;
-  padding: 10px;
+  top: 10px;
+  left: 40px;
+  height: 10vh;
+  width: 80px;
   border-right: 1px solid #ccc;
   transition: left 0.5s ease;
 }
 
-.side-tray.visible {
-  left: 0;
+.side-tray > ul {
+  flex-direction: column;
+  text-align: center;
+
 }
 
-@media (min-width: 736px) {
-  .side-tray {
-    display: none;
-  }
+.side-tray > ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  flex-direction: row;
+  background-color: #113ddb;
+  border: 1px solid #ccc;
+  transition: left 0.5s ease;
+}
 
-  nav.visible {
-    display: block;
-  }
+.side-tray > ul > li > ul.visible {
+  display: flex;
+}
+
+.side-tray.visible {
+  left: 0;
 }
 
 @media (max-width: 735px) {
