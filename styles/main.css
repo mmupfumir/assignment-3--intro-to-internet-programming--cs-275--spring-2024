@@ -19,14 +19,19 @@ a {
 }
 
 .modal-content-pane {
-  z-index: 2;
-  position: relative;
-  background-color: black;
+  #modal-content-panel {
+    z-index: 2;
+    position: relative;
+    background-color: black;
+  }
 }
 
 .modal-content {
-  z-index: 3;
-  position: relative;
-  display: flex;
-  border: 5px solid;
+  #show-modal {
+    z-index: 3;
+    position: relative;
+    display: flex;
+    border: 5px solid;
+    background-color: aliceblue;
+  }
 }
