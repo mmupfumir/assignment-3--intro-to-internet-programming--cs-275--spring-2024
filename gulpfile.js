@@ -38,7 +38,7 @@ async function allBrowsers() {
     browserChoice = [
         `brave browser`,
         `google chrome`,
-        `microsoft-edge`, // Note: In Windows, this might need to be microsoft-edge
+        `microsoft-edge`,
         `firefox`,
         `opera`,
         `safari`,
