@@ -1,0 +1,25 @@
+nav {
+  border: 5px solid;
+  justify-content: center;
+  background-color: aquamarine;
+}
+
+a {
+  display: hidden;
+}
+
+.modal-panel {
+  z-index: 1;
+}
+
+.modal-content-pane {
+  z-index: 2;
+  position: relative;
+}
+
+.modal-content {
+  z-index: 3;
+  position: relative;
+  display: flex;
+  border: 5px solid aquamarine;
+}
