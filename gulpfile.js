@@ -1,71 +1,141 @@
-const gulp = require('gulp');
-const stylelint = require('gulp-stylelint');
-const eslint = require('gulp-eslint');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const cssnano = require('gulp-cssnano');
-const browserSync = require('browser-sync').create();
-const del = require('del');
+const { src, dest, series, watch } = require(`gulp`),
+    CSSLinter = require(`gulp-stylelint`),
+    babel = require(`gulp-babel`),
+    jsCompressor = require(`gulp-uglify`),
+    jsLinter = require(`gulp-eslint`),
+    sass = require(`gulp-sass`)(require(`sass`)),
+    browserSync = require(`browser-sync`),
+    reload = browserSync.reload;
 
-gulp.task('dev:css', () => {
-  return gulp.src('styles/**/*.css')
-    .pipe(stylelint({
-      configFile: '.stylelintrc.json',
-      reporters: [
-        {formatter: 'string', console: true}
-      ]
-    }))
-    .pipe(browserSync.stream());
-});
+let browserChoice = `default`;
 
-gulp.task('dev:js', () => {
-  return gulp.src('scripts/**/*.js')
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(browserSync.stream());
-});
+async function brave () {
+    browserChoice = `brave browser`;
+}
 
-gulp.task('dev:browser-sync', () => {
-  browserSync.init({
-    server: {
-      baseDir: './'
-    }
-  });
+async function chrome () {
+    browserChoice = `google chrome`;
+}
 
-  gulp.watch('styles/**/*.css', gulp.series('dev:css'));
-  gulp.watch('scripts/**/*.js', gulp.series('dev:js'));
-  gulp.watch('*.html').on('change', browserSync.reload);
-});
+async function edge () {
+    browserChoice = `microsoft edge`;
+}
 
-gulp.task('dev', gulp.series('dev:css', 'dev:js', 'dev:browser-sync'));
+async function firefox () {
+    browserChoice = `firefox`;
+}
 
-gulp.task('prod:clean', () => {
-  return del(['prod']);
-});
+async function opera () {
+    browserChoice = `opera`;
+}
 
-gulp.task('prod:css', () => {
-  return gulp.src('styles/**/*.css')
-    .pipe(cssnano())
-    .pipe(gulp.dest('prod/styles'));
-});
+async function safari () {
+    browserChoice = `safari`;
+}
 
-gulp.task('prod:js', () => {
-  return gulp.src('scripts/**/*.js')
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest('prod/scripts'));
-});
+async function vivaldi () {
+    browserChoice = `vivaldi`;
+}
 
-gulp.task('prod:copy-html', () => {
-  return gulp.src('*.html')
-    .pipe(gulp.dest('prod'));
-});
+async function allBrowsers () {
+    browserChoice = [
+        `brave browser`,
+        `google chrome`,
+        `microsoft edge`,
+        `firefox`,
+        `opera`,
+        `safari`,
+        `vivaldi`
+    ];
+}
 
-gulp.task('prod:build', gulp.series(
-  'prod:clean',
-  gulp.parallel('prod:css', 'prod:js', 'prod:copy-html')
-));
+let compileCSSForProd = () => {
+    return src(`styles/main.css`)
+        .pipe(sass.sync({
+            outputStyle: `compressed`,
+            precision: 10
+        }).on(`error`, sass.logError))
+        .pipe(dest(`prod/styles`));
+};
 
-gulp.task('build', gulp.series('prod:build'));
+let compileCSSForDev = () => {
+    return src(`styles/main.css`)
+        .pipe(sass.sync({
+            outputStyle: `expanded`,
+            precision: 10
+        }).on(`error`, sass.logError))
+        .pipe(dest(`temp/styles`));
+};
+
+let lintCSS = () => {
+    return src(`styles/**/*.css`)
+        .pipe(CSSLinter({
+            failAfterError: false,
+            reporters: [
+                {formatter: `string`, console: true}
+            ]
+        }));
+};
+
+let transpileJSForProd = () => {
+    return src(`scripts/*.js`)
+        .pipe(babel())
+        .pipe(jsCompressor())
+        .pipe(dest(`prod/js`));
+};
+
+let transpileJSForDev = () => {
+    return src(`scripts/*.js`)
+        .pipe(babel())
+        .pipe(dest(`temp/js`));
+};
+
+let lintJS = () => {
+    return src(`scripts/*.js`)
+        .pipe(jsLinter())
+        .pipe(jsLinter.formatEach(`compact`));
+};
+
+let serve = () => {
+    browserSync({
+        notify: true,
+        reloadDelay: 50,
+        browser: browserChoice,
+        server: {
+            baseDir: [
+                `.`
+            ]
+        }
+    });
+
+    watch(`scripts/*.js`, series(lintJS, transpileJSForDev))
+        .on(`change`, reload);
+
+    watch(`styles/**/*.css`, compileCSSForDev)
+        .on(`change`, reload);
+};
+
+exports.brave = series(brave, serve);
+exports.chrome = series(chrome, serve);
+exports.edge = series(edge, serve);
+exports.firefox = series(firefox, serve);
+exports.opera = series(opera, serve);
+exports.safari = series(safari, serve);
+exports.vivaldi = series(vivaldi, serve);
+exports.allBrowsers = series(allBrowsers, serve);
+exports.lintCSS = lintCSS;
+exports.compileCSSForDev = compileCSSForDev;
+exports.lintJS = lintJS;
+exports.transpileJSForDev = transpileJSForDev;
+exports.compileCSSForProd = compileCSSForProd;
+exports.transpileJSForProd = transpileJSForProd;
+exports.serve = series(
+    compileCSSForDev,
+    lintJS,
+    transpileJSForDev,
+    serve
+);
+exports.build = series(
+    compileCSSForProd,
+    transpileJSForProd,
+);
