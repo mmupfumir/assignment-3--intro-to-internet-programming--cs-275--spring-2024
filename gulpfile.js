@@ -2,7 +2,10 @@ const {src, dest, series, watch} = require(`gulp`),
     browserSync = require(`browser-sync`),
     jsLinter = require(`gulp-eslint`),
     babel = require(`gulp-babel`),
-    CSSLinter = require(`gulp-stylelint`);
+    jsCompressor = require(`gulp-uglify`),
+    CSSLinter = require(`gulp-stylelint`),
+    concat = require(`gulp-concat`),
+    cleanCss = require(`gulp-clean-css`);
 
 let browserChoice = `default`;
 
@@ -69,7 +72,7 @@ let lintCSS = () => {
 let transpileJSForDev = () => {
     return src(`scripts/*.js`)
         .pipe(babel())
-        .pipe(dest(`dev/scripts`));
+        .pipe(dest(`prod/scripts`));
 };
 
 let serve = () => {
@@ -87,6 +90,20 @@ let serve = () => {
     watch(`*.html`).on(`change`, browserSync.reload);
 };
 
+let compileCSSForProd = () => {
+    return src(`./styles/*.css`)
+        .pipe(concat(`app.css`))
+        .pipe(cleanCss())
+        .pipe(dest(`prod/styles`));
+};
+
+let transpileJSForProd = () => {
+    return src(`./scripts/*.js`)
+        .pipe(babel())
+        .pipe(jsCompressor())
+        .pipe(dest(`prod/scripts`));
+};
+
 exports.brave = series(brave, serve);
 exports.chrome = series(chrome, serve);
 exports.edge = series(edge, serve);
@@ -99,9 +116,15 @@ exports.default = serve;
 exports.lintJS = lintJS;
 exports.lintCSS = lintCSS;
 exports.transpileJSForDev = transpileJSForDev;
+exports.compileCSSForProd = compileCSSForProd;
+exports.transpileJSForProd = transpileJSForProd;
 exports.serve = series(
     lintJS,
     serve,
     lintCSS,
     transpileJSForDev
+);
+exports.build   = series(
+    compileCSSForProd,
+    transpileJSForProd
 );
