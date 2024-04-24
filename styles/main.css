@@ -28,13 +28,6 @@
   text-align: center;
 }
 
-.closeBtn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-}
-
 nav ul {
   display: flex;
   list-style: none;
