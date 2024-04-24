@@ -54,7 +54,7 @@ nav ul li a {
 
 nav {
   position: absolute;
-  top: 15.5%;
+  top: 110px;
   right: 40%;
 }
 
@@ -62,6 +62,15 @@ nav {
   visibility: hidden;
   opacity: 0;
   display: flex;
+}
+
+@media (max-width: 736px) {
+  #menu-bar {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 
 .modal-panel {

@@ -48,4 +48,16 @@ document.addEventListener(`DOMContentLoaded`, function(){
         toggleModalShowing();
     });
 
+    // Event Listener for the 'showModalPanel' button click
+    showModalPanel.addEventListener(`click`, (c) => {
+        c.preventDefault();
+        toggleModalShowing();
+    });
+
+    // Event Listener for the 'Escape' button click
+    document.addEventListener(`keydown`, (k) => {
+        if(k.code === `Escape`){
+            toggleModalShowing();
+        }
+    });
 });
