@@ -1,6 +1,7 @@
 const gulp = require(`gulp`);
 const babel = require(`gulp-babel`);
 const concat = require(`gulp-concat`);
+const uglify = require(`gulp-uglify`);
 const cleanCSS = require(`gulp-clean-css`);
 const eslint = require(`gulp-eslint`);
 const stylelint = require(`gulp-stylelint`);
@@ -62,6 +63,7 @@ gulp.task(`build-js`, () => {
             presets: [`@babel/env`]
         }))
         .pipe(concat(`main.js`))
+        .pipe(uglify())
         .pipe(gulp.dest(`prod/scripts`));
 });
 
