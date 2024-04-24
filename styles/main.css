@@ -1,7 +1,13 @@
 nav {
   border: 5px solid;
   justify-content: center;
-  background-color: aquamarine;
+  background-color: deepskyblue;
+}
+
+body {
+  height: 100vh;
+  max-width: fit-content;
+  margin: 2 auto;
 }
 
 a {
@@ -15,11 +21,12 @@ a {
 .modal-content-pane {
   z-index: 2;
   position: relative;
+  background-color: black;
 }
 
 .modal-content {
   z-index: 3;
   position: relative;
   display: flex;
-  border: 5px solid aquamarine;
+  border: 5px solid;
 }
