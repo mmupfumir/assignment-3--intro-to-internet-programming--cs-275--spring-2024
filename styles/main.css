@@ -1,0 +1,130 @@
+nav {
+  background-color: #113ddb;
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+#js-triggers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+nav.visible {
+  display: block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vh;
+  background-color: white;
+  z-index: 1001;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.side-tray {
+  background-color: #113ddb;
+  position: fixed;
+  top: 10px;
+  left: 40px;
+  height: 10vh;
+  width: 80px;
+  border-right: 1px solid #ccc;
+  transition: left 0.5s ease;
+}
+
+.side-tray > ul {
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.side-tray > ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  flex-direction: row;
+  background-color: #113ddb;
+  border: 1px solid #ccc;
+  transition: left 0.5s ease;
+}
+
+.side-tray > ul > li > ul.visible {
+  display: flex;
+}
+
+.side-tray.visible {
+  left: 0;
+}
+
+@media (max-width: 735px) {
+  nav {
+    display: none;
+  }
+
+  .side-tray {
+    display: block;
+  }
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+nav ul > li {
+  position: relative;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+}
+
+nav.visible {
+  display: block;
+}
+
+nav ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  background-color: #444;
+  z-index: 1000;
+}
+
+nav ul > li > ul.visible {
+  display: block;
+}
