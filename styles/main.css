@@ -1,0 +1,122 @@
+:root {
+  --bg-color: #101010;
+  --main-color: #f99f0d;
+  --2nd-main-color: #ffcc;
+  --text-color: #fff;
+  --big-font: 5rem;
+  --h2-font: 1.9rem;
+  --p-font: 1rem;
+}
+
+h1 {
+  padding-top: 50px;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Franklin Gothic Medium', 'Arial ', sans-serif;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/*menu 1 & menu 2*/
+nav {
+  position: absolute;
+  top: 10px;
+}
+
+/*menus horizontal*/
+nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/*menu*/
+nav ul li {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  background-color: var(--bg-color);
+  line-height: 2;
+  text-align: center;
+  font-size: 18px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--text-color);
+}
+
+/* makes it a box*/
+nav ul li a {
+  text-decoration: none;
+  color: var(--main-color);
+  align-items: center;
+}
+
+header {
+  background: var(--bg-color);
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+header a {
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+  line-height: 1.1;
+  color: var(--main-color);
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+/*hides sub menu */
+ul li ul li {
+  display: none;
+}
+
+/*sub boxes display */
+ul li:hover ul li {
+  display: block;
+}
+
+.modal-panel {
+  position: fixed;
+  top: 100;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 1;
+  display: none;
+}
+
+.modal-content-pane {
+  position: relative;
+  background: var(--2nd-main-color);
+  clip-path: polygon(100% 0, 100% 57%, 54% 100%, 0 100%, 0 0);
+  top: 100px;
+  left: 90px;
+  right: 100px;
+  width: 80%;
+  height: 80%;
+  z-index: 2;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 736px) {
+  nav ul {
+    flex-direction: column;
+    margin-right: auto;
+    width: 300px;
+    height: 50px;
+  }
+}
