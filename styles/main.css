@@ -1,0 +1,70 @@
+/* Modal */
+.modal-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 300px;
+  border: 2px black;
+  display: none;
+  z-index: 1000;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 999;
+}
+
+.modal-panel.show {
+  display: block;
+}
+
+/* Drop-down menu */
+nav ul {
+  list-style-type: none;
+  padding: 2;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: orange;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li:hover > ul {
+  display: block;
+}
+
+/* Side tray */
+@media (max-width: 736px) {
+  nav {
+    display: none;
+  }
+
+  .side-tray {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: skyblue;
+    transition: left .5s ease;
+    z-index: 1000;
+  }
+
+  .side-tray.show {
+    left: 0;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "assignment-3--intro-to-internet-programming--cs-275--spring-2024",
+  "version": "1.0.0",
+  "description": "This project is about implementing three separate interactions that are commonly included in websites: a modal, a drop-down menu, and a side-tray.They should be implemented on the same page, and each should transition smoothly between pre- and post-trigger states.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "NIL"
+  },
+  "author": "Moyosoreoluwa Akinsulere",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}
