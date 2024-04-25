@@ -1,0 +1,37 @@
+nav {
+  border: 5px solid;
+  justify-content: center;
+  background-color: deepskyblue;
+}
+
+body {
+  height: 100vh;
+  max-width: fit-content;
+  margin: 2 auto;
+}
+
+a {
+  display: hidden;
+}
+
+.modal-panel {
+  z-index: 1;
+}
+
+.modal-content-pane {
+  #modal-content-panel {
+    z-index: 2;
+    position: relative;
+    background-color: black;
+  }
+}
+
+.modal-content {
+  #show-modal {
+    z-index: 3;
+    position: relative;
+    display: flex;
+    border: 5px solid;
+    background-color: aliceblue;
+  }
+}
