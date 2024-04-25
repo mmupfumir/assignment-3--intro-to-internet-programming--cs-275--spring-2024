@@ -1,0 +1,96 @@
+header {
+  background-color: rgb(66, 196, 196);
+  padding: 20px;
+  color: white;
+  text-align: right;
+}
+/* modal setup */
+#js-triggers {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+}
+
+#js-triggers li a {
+  text-decoration: none;
+  color: white;
+}
+
+.modal-panel {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .695);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content-pane {
+  background-color: white;
+  width: 55%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*drop down setup*/
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  overflow: hidden;
+  display: inline-block;
+  background-color: rgb(31, 201, 144);
+}
+
+nav ul li {
+  float: left;
+  margin-right: -11px;
+}
+
+nav ul ul li {
+  display: none;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  padding: 25px;
+  background-color: rgba(193, 159, 20, .855);
+  /* margin: 6px; */
+  margin-right: 5px;
+  color: black;
+}
+
+nav {
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s;
+  top: 116px;
+}
+
+@media screen and (max-width: 736px) {
+  .modal-content-pane {
+    background-color: white;
+    width: 82%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
